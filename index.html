@@ -4,63 +4,145 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- CSS only -->
-    <script src="js/alertify.js"></script>
-    <link rel="stylesheet" href="js/alertify.js">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-
+    <script src="./js/alertify.js"></script>
+    <link rel="stylesheet" href="./js/css/alertify.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="./js/css/style.css">
+    <title>Web Sport</title>
 </head>
 <body>
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/img/futbol.png" alt="qatar" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="/img/fem.png" alt="nba" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="/img/portero.png" alt="ganar" class="d-block w-100">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
     <div id="aplicacion">
         
-        <h3>CONSULTAR USUARIOS</h3>
-        <input type="button" value="VER" v-on:click="consultarUsuarios">
-        <br>
-        Buscar x Apellido
-        <input type="text" v-model="buscaApellido"> 
-        <input type="button" class="btn btn-primary" value="BUSCAR" v-on:click="buscarApellido">
-        
+        <div class="container" id="inicio">
+            <h2 class="text-center mb-5 pt-3">
+                <span class="p-3 mb-2 bg-secundary text-black">Web Sport</span>
+            </h1>
+            <div>
+                <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                    <div class="container d-flex flex-row justify-content-around">
+                        <ul class="navbar-nav m-2">
+                            <li class="inicio mx-3">
+                                <button class="list-group-item text-white" v-on:click="menu=0">Inicio</button>
+                            </li>
+                            <li class="Usuario mx-3">
+                                <button class="list-group-item text-white" v-on:click="menu=1">Usuarios</button>
+                            </li>
+                            <li class="Equipos mx-3">
+                                <button class="list-group-item text-white" v-on:click="menu=2">Equipos</button>
+                            </li>
+                            <li class="Eventos mx-3">
+                                <button class="list-group-item text-white" v-on:click="menu=3">Eventos</button>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            
+            <!--Usuarios-->
 
-        <table class="table-primary" >
-            <thead>
-                <th>Documento</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Correo</th>
-                <th>Telefono</th>
-                <th>Genero</th>
-            </thead>
-            <tbody>
-                <tr v-for="usuario in usuarios">
-                    <td>{{usuario.documento}}</td>
-                    <td>{{usuario.nombre}}</td>
-                    <td>{{usuario.apellido}}</td>
-                    <td>{{usuario.correo}}</td>
-                    <td>{{usuario.telefono}}</td>
-                    <td>{{usuario.genero}}</td>
-                </tr>
-            </tbody>
-        </table>
-        <hr>
-        <h3>CONSULTAR POR DOCUMENTO</h3>
-        <label>Nro Documento</label><input type="text" v-model="buscaDoc">
-        <input class="btn btn-warning" type="button" value="Buscar" v-on:click="buscarDoc">
-        <p>
-            Documento: {{usuario.documento}}<br>
-            Nombre: {{usuario.nombre}}<br>
-            Apellido: {{usuario.apellido}}<br>
-            Correo: {{usuario.correo}}<br>
-            Telefono: {{usuario.telefono}}<br>
-            Genero: {{usuario.genero}}           
-        </p>
-        <hr>
-        <h3>ELIMINAR USUARIO</h3>
-        <label>Nro Documento</label><input type="text" v-model="borrarDoc">
-        <input class="btn btn-warning" type="button" value="ELIMINAR" v-on:click="eliminaUsuario">
-    </div>
-    
+            <div v-if="menu==1">
+                <h3 class="text-dark">
+                    Usuarios
+                </h3>
+                <ul class="list-group d-flex flex-row justify-content-around" >
+                    <li class="inicio mx-3">
+                        <button class="list-group-item text-dark" v-on:click="menu=0">Inicio</button>
+                    </li>
+                    <li class="list-group-item btn btn-danger" v-on:click="menu=6">Registrar usuario</li>
+                    <li class="list-group-item btn" v-on:click="menu=7">Consultar usuario</li>
+                    <li class="list-group-item btn" v-on:click="menu=8">Buscar por id</li>
+                    <li class="list-group-item btn" v-on:click="menu=9">Eliminar usuario</li>
+                </ul>
+            </div>
+
+            <div v-if="menu==2">
+                <h3 class="text-dark">
+                    Equipos
+                </h3>
+                <ul class="list-group d-flex flex-row justify-content-around" >
+                    <li class="inicio mx-3">
+                        <button class="list-group-item text-dark" v-on:click="menu=0">Inicio</button>
+                    </li>
+                    <li class="list-group-item btn" v-on:click="menu=10">Registrar equipo</li>
+                    <li class="list-group-item btn" v-on:click="menu=11">Consultar equipo</li>
+                    <li class="list-group-item btn" v-on:click="menu=12">Buscar equipo por código</li>
+                    <li class="list-group-item btn" v-on:click="menu=13">Eliminar equipo</li>
+                </ul>
+            </div>    
+
+            <div v-if="menu==3">
+                <h3 class="text-dark">
+                    Eventos
+                </h3>
+                <ul class="list-group d-flex flex-row justify-content-around" >
+                    <li class="inicio mx-3">
+                        <button class="list-group-item text-dark" v-on:click="menu=0">Inicio</button>
+                    </li>
+                    <li class="list-group-item btn" v-on:click="menu=14">Registrar Evento</li>
+                    <li class="list-group-item btn" v-on:click="menu=15">Consultar Eventos</li>
+                </ul>
+            </div>
+            
+            <div>
+                <!-- USUARIOS -->
+                
+                <guardar-usuario v-if="menu==6"></guardar-usuario>
+                
+                <consultar-usuario v-if="menu==7"></consultar-usuario> 
+                
+                <consultar-documento v-if="menu==8"></consultar-documento>
+                
+                <eliminar-usuario v-if="menu==9"></eliminar-usuario>
+            </div>
+
+            <!--EQUIPOS-->
+            <div>
+                <guardar-equipo v-if="menu==10"></guardar-equipo>
+            
+                <consultar-equipo v-if="menu==11"></consultar-equipo> 
+                
+                <consultar-codequipo v-if="menu==12"></consultar-codequipo>
+                
+                <eliminar-equipo v-if="menu==13"></eliminar-equipo>
+            </div>
+
+            <!--EVENTOS-->
+            <div>
+                <guardar-evento v-if="menu==14"></guardar-evento>
+            
+                <consultar-evento v-if="menu==15"></consultar-evento>
+            </div>
+        </div>
+    </div>    
+
+
 </body>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<script src="js/app.js"></script>
+<script src="./js/app.js"></script>
 </html>

@@ -1,0 +1,17 @@
+.navbar-nav{
+    align-items: center;
+}
+body{
+background-color: white;
+}
+
+.slide {
+    margin-top:auto;
+}
+.slide img{
+    height: 60vh;
+}
+.row {
+
+    margin: 0 auto;
+}
