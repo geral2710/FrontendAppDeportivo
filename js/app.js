@@ -193,7 +193,7 @@ app.component("eliminar-usuario", {
         eliminarDocUsuario() {
             const endpoint="https://depappbackendf-production.up.railway.app/usuario/eliminar/"+this.borrarDoc;
             const opcion={method: "DELETE"};
-            alertify.confirm ("Última oportunidad", "Estás seguro de eliminar este usuario?", function() {
+            alertify.confirm ("Última oportunidad, Estás seguro de eliminar este usuario?", function() {
                 fetch(endpoint,opcion).then(async response => {
                     var respuesta=await response.json();
                     if (respuesta) {
@@ -410,7 +410,7 @@ app.component("eliminar-equipo", {
         eliminarEquipo() {
             const endpoint="https://depappbackendf-production.up.railway.app/equipo/eliminar/"+this.borrarCodEquipo;
             const opcion={method: "DELETE"};
-            alertify.confirm ("Última oportunidad", "Estás seguro de eliminar este equipo?", function() {
+            alertify.confirm ("Última oportunidad, Estás seguro de eliminar este equipo?", function() {
                 fetch(endpoint,opcion).then(async response => {
                     var respuesta=await response.json();
                     if (respuesta) {
