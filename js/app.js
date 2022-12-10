@@ -42,7 +42,7 @@ app.component("guardar-usuario", {
 `,
     methods:{
         guardarUsuario(){
-            const endpoint="http://localhost:8080/usuario/guardar";
+            const endpoint="https://depappbackendf-production.up.railway.app/usuario/guardar";
             const opcion={
                 method:"POST",
                 headers: {'Content-Type': 'application/json'},
@@ -124,12 +124,12 @@ app.component("consultar-usuario", {
     `,
     methods:{
         verUsuarios() {
-            const endpoint="http://localhost:8080/usuario/consultar";
+            const endpoint="https://depappbackendf-production.up.railway.app/usuario/consultar";
             const opcion={method:"GET"};
             fetch(endpoint,opcion).then(async response => {this.usuarios=await response.json()}); 
         },
         buscarxApellido() {
-            const endpoint="http://localhost:8080/usuario/buscarxapellido"+this.apellidoBuscado;
+            const endpoint="https://depappbackendf-production.up.railway.app/usuario/buscarxapellido"+this.apellidoBuscado;
             const opcion={method:"GET"};
             fetch(endpoint,opcion).then(async response => {
                 this.listaApellidos=await response.json();
@@ -163,7 +163,7 @@ app.component("consultar-documento", {
     `,
     methods: {
         buscarPorId() {
-            const endpoint="http://localhost:8080/usuario/buscar-por-id" + this.buscarDoc;
+            const endpoint="https://depappbackendf-production.up.railway.app/usuario/buscar-por-id" + this.buscarDoc;
             const opcion={method: "GET"};
             fetch(endpoint,opcion).then(async response => {
                 this.docuConsultado=await response.json();
@@ -191,7 +191,7 @@ app.component("eliminar-usuario", {
     `,
     methods: {
         eliminarDocUsuario() {
-            const endpoint="http://localhost:8080/usuario/eliminar/"+this.borrarDoc;
+            const endpoint="https://depappbackendf-production.up.railway.app/usuario/eliminar/"+this.borrarDoc;
             const opcion={method: "DELETE"};
             alertify.confirm ("Última oportunidad", "Estás seguro de eliminar este usuario?", function() {
                 fetch(endpoint,opcion).then(async response => {
@@ -251,7 +251,7 @@ app.component("guardar-equipo", {
 `,
     methods:{
         guardarEquipos(){
-            const endpoint="http://localhost:8080/equipo/guardar";
+            const endpoint="https://depappbackendf-production.up.railway.app/equipo/guardar";
             const opcion={
                 method:"POST",
                 headers: {'Content-Type': 'application/json'},
@@ -340,12 +340,12 @@ app.component("consultar-equipo", {
     `,
     methods:{
         verEquipos() {
-            const endpoint="http://localhost:8080/equipo/consultar";
+            const endpoint="https://depappbackendf-production.up.railway.app/equipo/consultar";
             const opcion={method:"GET"};
             fetch(endpoint,opcion).then(async response => {this.equipo=await response.json()}); 
         },
         buscarxNombreEquipo() {
-            const endpoint="http://localhost:8080/equipo/consultarnombre/"+this.equipoBuscado;
+            const endpoint="https://depappbackendf-production.up.railway.app/equipo/consultarnombre/"+this.equipoBuscado;
             const opcion={method:"GET"};
             fetch(endpoint,opcion).then(async response => {
                 this.listaEquipos=await response.json();
@@ -380,7 +380,7 @@ app.component("consultar-codequipo", {
     `,
     methods: {
         buscarxCodEquipo() {
-            const endpoint="http://localhost:8080/equipo/consultarcodigo/" + this.codigoEquipoBusc;
+            const endpoint="https://depappbackendf-production.up.railway.app/equipo/consultarcodigo/" + this.codigoEquipoBusc;
             const opcion={method: "GET"};
             fetch(endpoint,opcion).then(async response => {
                 this.equipoBusqueda=await response.json();
@@ -408,7 +408,7 @@ app.component("eliminar-equipo", {
     `,
     methods: {
         eliminarEquipo() {
-            const endpoint="http://localhost:8080/equipo/eliminar/"+this.borrarCodEquipo;
+            const endpoint="https://depappbackendf-production.up.railway.app/equipo/eliminar/"+this.borrarCodEquipo;
             const opcion={method: "DELETE"};
             alertify.confirm ("Última oportunidad", "Estás seguro de eliminar este equipo?", function() {
                 fetch(endpoint,opcion).then(async response => {
@@ -463,7 +463,7 @@ app.component("guardar-evento", {
 `,
     methods:{
         guardarEvento(){
-            const endpoint="http://localhost:8080/partidos/guardar";
+            const endpoint="https://depappbackendf-production.up.railway.app/partidos/guardar";
             const opcion={
                 method:"POST",
                 headers: {'Content-Type': 'application/json'},
@@ -525,7 +525,7 @@ app.component("consultar-evento", {
     `,
     methods:{
         verEventos() {
-            const endpoint="http://localhost:8080/partidos/consultar";
+            const endpoint="https://depappbackendf-production.up.railway.app/partidos/consultar";
             const opcion={method:"GET"};
             fetch(endpoint,opcion).then(async response => {this.eventos=await response.json()}); 
         }
